@@ -26,7 +26,7 @@ window.onload = () => {
     {
         document.documentElement.classList.add('light-mode')
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
-        console.log(1);
+        
         loaderI.setAttribute('src','./loader2.gif')
         loader.style.background = 'white'
 
@@ -35,7 +35,7 @@ window.onload = () => {
     {
         document.documentElement.classList.remove('light-mode')
         mode.innerHTML = '<i class="lightmode material-symbols-outlined">dark_mode</i> Dark Mode'
-        console.log(2);
+        
         loaderI.setAttribute('src','./loader.gif')
          loader.style.background = 'black'
 
@@ -50,7 +50,8 @@ mode.onclick = () => {
         m = 'light'
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
         
- 
+        loaderI.setAttribute('src','./loader2.gif')
+        loader.style.background = 'white'
  
     }
     else
@@ -59,10 +60,11 @@ mode.onclick = () => {
         m = 'dark'
         
         mode.innerHTML = '<i class="lightmode material-symbols-outlined">dark_mode</i> Dark Mode'
-        
+        loaderI.setAttribute('src','./loader.gif')
+         loader.style.background = 'black'
     }
     sessionStorage.setItem('mode',m)
-    console.log(sessionStorage.getItem('mode'));
+    
     
  
     
@@ -87,9 +89,9 @@ async function getJson()
       lang = url.get('lang')
       let response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
       let json =await response.json();
-      console.log(json);
+      
       json = json[0]
-      console.log(json);
+      
       return json
      }
 async function updateDom()
@@ -108,9 +110,9 @@ async function updateDom()
 
          //Language
         
-         console.log(Object.keys(json.languages));
+         
          l = Object.keys(json.languages);
-         console.log(l);
+         
          let arr = [];
          let temp = json.languages;
          for(let i of l)
@@ -118,14 +120,14 @@ async function updateDom()
 
             arr.push(temp[i])
          }
-         console.log(arr);
+        
          let string = arr.join(', ')
-         console.log(string);
+         
          nativeL.innerText = string
 
           //Native Name
           let a = l[0]
-          console.log(a);
+       
        let obj = json.name.nativeName[a].official;
        native.innerText = obj
        
@@ -139,7 +141,7 @@ async function updateDom()
          {
             let response = await fetch(`https://restcountries.com/v3.1/alpha/${i}`)
             let json = await response.json()
-            console.log(json);
+            
             let ele = document.createElement('span')
             ele.classList.add('country')
              
