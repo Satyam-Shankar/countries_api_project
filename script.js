@@ -14,14 +14,14 @@ let current;
 window.onload = () => {
     setTimeout(() => {
         loader.style.display = "none"
-    },6000)
+    },4000)
     
     if(sessionStorage.getItem('mode') == 'light')
     {
         document.documentElement.classList.add('light-mode')
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
         console.log(1);
-        loaderI.setAttribute('src','./loader.gif')
+        loaderI.setAttribute('src','./loader2.gif')
         loader.style.background = 'white'
 
     }
@@ -126,6 +126,7 @@ async function searchByName()
 {
     console.log(4);
     let value = input.value.trim();
+    let html = cards.innerHTML;
     cards.innerHTML = ""
     if(value !='')
     {
@@ -137,7 +138,8 @@ async function searchByName()
     }
     else if(value == "")
     {
-        update()
+        // update()
+        cards.innerHTML = html
     }
 }
 
