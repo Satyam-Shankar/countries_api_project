@@ -178,3 +178,17 @@ a
     }
     
 }
+
+@media screen and ( max-width :600px) {
+
+    .content
+    {
+    padding: 1em 1em;
+    }
+    .card
+    {
+     min-width: 65vw;
+     height: 100%;
+    }
+    
+}
