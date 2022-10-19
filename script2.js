@@ -13,19 +13,21 @@ let border = document.querySelector('.countries')
 let img = document.querySelector('.flag-img')
 let cname = document.querySelector('.name')
 let lang ;
+let loaderI = document.querySelector('.limage')
+
 let mode = document.querySelector('.mode')
 
 window.onload = () => {
-   setTimeout(() => {
-       loader.style.display = "none"
-   },2500)
-   
-   if(sessionStorage.getItem('mode') == 'light')
+    setTimeout(() => {
+        loader.style.display = "none"
+    },3000)
+    
+    if(sessionStorage.getItem('mode') == 'light')
     {
         document.documentElement.classList.add('light-mode')
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
         console.log(1);
-        loaderI.setAttribute('src','./loader.gif')
+        loaderI.setAttribute('src','./loader2.gif')
         loader.style.background = 'white'
 
     }
