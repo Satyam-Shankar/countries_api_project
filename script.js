@@ -45,7 +45,8 @@ mode.onclick = () => {
         m = 'light'
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
         
- 
+        loaderI.setAttribute('src','./loader2.gif')
+        loader.style.background = 'white'
  
     }
     else
@@ -54,7 +55,8 @@ mode.onclick = () => {
         m = 'dark'
         
         mode.innerHTML = '<i class="lightmode material-symbols-outlined">dark_mode</i> Dark Mode'
-        
+        loaderI.setAttribute('src','./loader.gif')
+         loader.style.background = 'black'
     }
     sessionStorage.setItem('mode',m)
     console.log(sessionStorage.getItem('mode'));
