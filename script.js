@@ -25,7 +25,7 @@ window.onload = () => {
         loader.style.background = 'white'
 
     }
-    else if(sessionStorage.getItem('mode') == 'dark')
+    if(sessionStorage.getItem('mode') == 'dark')
     {
         document.documentElement.classList.remove('light-mode')
         mode.innerHTML = '<i class="lightmode material-symbols-outlined">dark_mode</i> Dark Mode'
