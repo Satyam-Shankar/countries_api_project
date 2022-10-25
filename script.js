@@ -21,7 +21,7 @@ window.onload = () => {
         document.documentElement.classList.add('light-mode')
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
         console.log(1);
-        loaderI.setAttribute('src','./loader2.gif')
+        loaderI.setAttribute('src','./loader32.gif')
         loader.style.background = 'white'
 
     }
@@ -30,7 +30,7 @@ window.onload = () => {
         document.documentElement.classList.remove('light-mode')
         mode.innerHTML = '<i class="lightmode material-symbols-outlined">dark_mode</i> Dark Mode'
         console.log(2);
-        loaderI.setAttribute('src','./loader.gif')
+        loaderI.setAttribute('src','./loader31.gif')
          loader.style.background = 'black'
 
     }
@@ -81,12 +81,15 @@ function update_card(response)
     console.log(response);
     for(let data of response)
     {
+        try
+        {
+        
         let name = data.name.official;
         let population = data.population;
         let capital = data.capital[0];
         let region = data.region;
         let flag = data.flags.png;
-
+        console.log(name);
         // language = data.language.keys[0];
 
         
@@ -108,7 +111,11 @@ function update_card(response)
     a.innerHTML = ele.outerHTML;
     console.log(a);
     cards.appendChild(a)
-
+        }
+        catch
+        {
+            console.log('Some error occured');
+        }
     
     
     }
@@ -128,10 +135,11 @@ async function searchByName()
 {
     console.log(4);
     let value = input.value.trim();
-    let html = cards.innerHTML;
+    
     cards.innerHTML = ""
     if(value !='')
     {
+        select.value = 'Search by region'
     let url = `https://restcountries.com/v3.1/name/${value}`
     let response = await fetch(url)
     let json = await response.json()
@@ -140,8 +148,8 @@ async function searchByName()
     }
     else if(value == "")
     {
-        // update()
-        cards.innerHTML = html
+        update()
+        
     }
 }
 
@@ -160,7 +168,8 @@ async function searchByRegion()
         let response = await fetch(`https://restcountries.com/v3.1/region/${value}`)
         let json =await response.json()
         update_card(json)
-    }
+        console.log('a');   
+     }
 }
 
 
