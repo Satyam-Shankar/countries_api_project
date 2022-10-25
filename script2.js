@@ -28,7 +28,7 @@ window.onload = () => {
         document.documentElement.classList.add('light-mode')
         mode.innerHTML = '<i class="darkmode material-symbols-outlined">light_mode</i> Light Mode'
         console.log(1);
-        loaderI.setAttribute('src','./loader2.gif')
+        loaderI.setAttribute('src','./loader32.gif')
         loader.style.background = 'white'
 
     }
@@ -37,7 +37,7 @@ window.onload = () => {
         document.documentElement.classList.remove('light-mode')
         mode.innerHTML = '<i class="lightmode material-symbols-outlined">dark_mode</i> Dark Mode'
         console.log(2);
-        loaderI.setAttribute('src','./loader.gif')
+        loaderI.setAttribute('src','./loader31.gif')
          loader.style.background = 'black'
 
     }
